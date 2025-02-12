@@ -1,7 +1,0 @@
-unsloth
-vllm
-pillow
-diffusers
-trl @ git+https://github.com/huggingface/trl.git@e95f9fb74a3c3647b86f251b7e230ec51c64b72b
-scipy
-ipywidgets
