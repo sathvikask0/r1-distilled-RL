@@ -12,6 +12,9 @@ MAX_COMPLETION_LENGTH = MAX_SEQ_LENGTH
 TEMPERATURE=0.6 
 TOP_P=0.95 
 
+from config import wandb_api_key
+import os
+os.environ["WANDB_API_KEY"] = wandb_api_key
 
 from unsloth import FastLanguageModel, PatchFastRL
 PatchFastRL("GRPO", FastLanguageModel)
@@ -227,7 +230,7 @@ training_args = GRPOConfig(
     # num_train_epochs = 1, # Set to 1 for a full training run
     max_steps = 250,
     max_grad_norm = 0.1,
-    report_to = "none", # Can use Weights & Biases
+    report_to = "wandb", # Can use Weights & Biases
     output_dir = "outputs",
     save_strategy="steps",  # Explicitly set save strategy (default is "steps")
     save_steps=1,  # Changed from 250 to 10 steps
